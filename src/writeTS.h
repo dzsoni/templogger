@@ -7,8 +7,9 @@ void writeTS()
                           1,
                           125,
                           jsp.getJSONValueQuickByKey("/thingspeak.json","WriteAPIKey").c_str());
+    Serial.print(F("Thingspeak server response: "));
     Serial.println(a);
-    Serial.println(jsp.getJSONValueQuickByKey("/thingspeak.json","WriteAPIKey"));
+    Serial.print(F("Channel id:"));
     Serial.println(jsp.getJSONValueQuickByKey("/thingspeak.json","ChannelID"));
   }
 }
