@@ -29,7 +29,7 @@ void setup()
     // Serious problem
     Serial.println(F("SPIFFS Mount failed."));
   }
-
+  ntp.setSendInterval(30);
   Serial.print(F("NTP service started, connecting to:"));
   Serial.println(ntp.getNTPServer());
 
@@ -37,8 +37,9 @@ void setup()
 
   pinMode(LED1, OUTPUT);
   digitalWrite(LED1, LOW);
-  ntp.setSendInterval(30);
+  
   ThingSpeak.begin(client);  // Initialize ThingSpeak
+
   tikersch.add( 0, 1000, [&](void *) { secTimer(); }, nullptr, true);
   tikersch.add( 1, 20000,[&](void *) { writeTS();  }, nullptr, true);
   

@@ -1,6 +1,7 @@
-void secTimer()
+
+void secTimer ()
 {
-  digitalWrite(LED1, !digitalRead(LED1));
+  digitalWrite  (LED1, !digitalRead(LED1));
   strDateTime prevtime = dateTime;
   if (WiFi.isConnected())
   {
